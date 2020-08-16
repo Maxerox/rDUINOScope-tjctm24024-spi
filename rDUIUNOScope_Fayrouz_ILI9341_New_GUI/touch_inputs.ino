@@ -1249,8 +1249,8 @@ int considerTouchInput(int lx, int ly, int lz, int prevlz)
         if (OBSERVATION_LATTITUDE > 0) {
           STP_FWD = LOW;
           STP_BACK = HIGH;
-          STP_FWD_RA = HIGH;
-          STP_BACK_RA = LOW;
+          STP_FWD_RA = LOW;
+          STP_BACK_RA = HIGH;
         } else {
           STP_FWD = HIGH;
           STP_BACK = LOW;
