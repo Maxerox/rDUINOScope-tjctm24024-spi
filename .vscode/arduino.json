@@ -1,0 +1,6 @@
+{
+    "programmer": "AVRISP mkII",
+    "board": "arduino:sam:arduino_due_x_dbg",
+    "port": "COM3",
+    "sketch": "rDUIUNOScope_Fayrouz_ILI9341_New_GUI\\rDUIUNOScope_Fayrouz_ILI9341_New_GUI.ino"
+}
