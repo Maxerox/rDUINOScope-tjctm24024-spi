@@ -876,7 +876,7 @@ void OnScreenMsg(int Msg) {
 ////////////////////////////////////////////////// Day/Night Mode Graphics Changes ///////////////////////////////////////////////////////
 void considerDayNightMode() {
   boolean prev_night_mode = IS_NIGHTMODE;
-  if (analogRead(DAY_NIGHT_PIN) < 800) {
+  if (analogRead(DAY_NIGHT_PIN) < 900) {
     IS_NIGHTMODE = true;
   } else {
     IS_NIGHTMODE = false;

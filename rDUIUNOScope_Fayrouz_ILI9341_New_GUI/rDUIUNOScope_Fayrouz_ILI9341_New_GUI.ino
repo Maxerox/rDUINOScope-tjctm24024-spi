@@ -228,8 +228,8 @@ String BT_COMMAND_STR;
 String START_TIME;
 int STP_FWD = LOW;
 int STP_BACK = HIGH;
-int STP_FWD_RA = LOW;
-int STP_BACK_RA = HIGH;
+int STP_FWD_RA = HIGH;
+int STP_BACK_RA = LOW;
 float OBJECT_RA_H;
 float OBJECT_RA_M;
 float OBJECT_DEC_D;
@@ -251,7 +251,7 @@ boolean IS_FOCUS_ON = true;
 boolean IS_OBJ_VISIBLE = false;
 boolean IS_IN_OPERATION = false;  // This variable becomes True when Main screen appears
 boolean IS_TRACKING = false;
-boolean IS_NIGHTMODE;
+boolean IS_NIGHTMODE = true;
 boolean IS_OBJ_FOUND = true;
 boolean IS_OBJECT_RA_FOUND = true;
 boolean IS_OBJECT_DEC_FOUND = true;
@@ -348,8 +348,8 @@ void setup(void) {
   if (OBSERVATION_LATTITUDE > 0) {
     STP_FWD = LOW;
     STP_BACK = HIGH;
-    STP_FWD_RA = LOW;
-    STP_BACK_RA = HIGH;
+    STP_FWD_RA = HIGH;
+    STP_BACK_RA = LOW;
   } else {
     STP_FWD = HIGH;
     STP_BACK = LOW;
@@ -422,8 +422,10 @@ void setup(void) {
 
   Timer3.attachInterrupt(Sidereal_rate);
   //  Timer3.start(Clock_Sidereal); // executes the code every 62.329 ms.
-
-  if (analogRead(DAY_NIGHT_PIN) < 800) //
+  Serial.print("> DEBUG MODE ");
+  Serial.println(analogRead(DAY_NIGHT_PIN));
+  
+  if (analogRead(DAY_NIGHT_PIN) < 900) //
   {
     IS_NIGHTMODE = true;
     texts = Maroon;
@@ -912,7 +914,7 @@ void loop(void) {
     xPosition = analogRead(xPin);
     yPosition = analogRead(yPin);
 
-    if ((xPosition < x_cal - 100) || (xPosition > x_cal + 100) || (yPosition < y_cal - 100) || (yPosition > x_cal + 100)) // all were 100
+    if ((xPosition < x_cal - 50) || (xPosition > x_cal + 50) || (yPosition < y_cal - 50) || (yPosition > x_cal + 50)) // all were 50
     {
       IS_MANUAL_MOVE = true;
       if (IS_STEPPERS_ON)
